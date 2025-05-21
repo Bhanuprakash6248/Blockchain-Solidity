@@ -6,7 +6,6 @@ const value2 = document.getElementById("value2")
 
 const resultValue = document.getElementById("result")
 
-
 const contractAddress = "0x40549afa3ee991b93970ecbb4d92ef120ddfd471"
 const contractABI = [
 	{
