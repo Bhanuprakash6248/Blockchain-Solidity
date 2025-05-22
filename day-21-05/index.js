@@ -110,6 +110,7 @@ async function connectWallet(){
             const accounts = await window.ethereum.request({method:"eth_requestAccounts"});
             userAccount = accounts[0]
             walletAddress.textContent = userAccount
+			walletBtn.textContent="Wallet Connected"
 	
         }catch(err){
             console.log(err)
@@ -126,7 +127,7 @@ async function stakeValue() {
 	try{
 		await contract.methods.setValue(value1.value).send({from:userAccount})
         const storednumber = await contract.methods.getValue().call()
-        console.log(storedValue)
+      
         storedValue.textContent = `Stored value:${storednumber}`
 		alert("Numbers stored successfully")
 	}catch(err){
@@ -134,19 +135,25 @@ async function stakeValue() {
 	}
 } 
 
+
 async function getValue() {
-    // if(!userAccount){
-    //     alert("Please Connect the wallet!!")
-    // }
+    if(!userAccount){
+        alert("Please Connect the wallet!!")
+    }
     try{
-        const setTime = await contract.methods.setTime()
-        console.log(setTime)
-        const claimResult = await contract.methods.claimValue().call()
-        result.textContent = `claimed Value :${claimResult}`
+        const setTime = await contract.methods.setTime().call()
+		console.log(setTime)
+		const claimResult = await contract.methods.claimValue().call()
+		result.style.color="green"
+		result.textContent = `claimed Value :${claimResult}`			
+
+
 
 
     }catch(err){
         console.log(err.message)
+		result.style.color="red"
         result.textContent = err.message
+		
     }
 }
