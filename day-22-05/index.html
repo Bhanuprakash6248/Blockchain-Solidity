@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple DApp</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <main class="main-con">
+
+   
+    <section class="wallet-con">
+      <h1>DApp Interface</h1>
+      <button id="wallet-btn" >Connect Wallet</button>
+      <p id="wallet-address"></p>
+    </section>
+
+    <section class="input-con">
+      <input type="text" id="value1" placeholder="Enter Value 1" />
+      <button id="stakeBtn" >Set Number</button>
+      
+    </section>
+
+
+    <section class="output-con">
+      <button  id="claimBtn">claim</button>
+      
+    </section>
+    <section>
+      <p id="TotalStakeValue"></p>
+      <p id="TotalClaimedValue"> </p>
+    </section>
+
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  <script src="index.js" type="module"></script>
+</body>
+</html>
